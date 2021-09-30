@@ -1,0 +1,32 @@
+#command-line {
+    position: absolute;
+    width: 45% !important;
+    height: 50% !important;
+}
+
+@font-face {
+    font-family: 'Dos';
+    src: url('../fonts/Perfect DOS VGA 437 Win.ttf') format('truetype')
+}
+
+#command-line2 {
+    position: absolute;
+    font-family: 'Dos';
+    background: gray !important;
+    color: #000;
+    right: 5px;
+    width: 45% !important;
+    height: 50% !important;
+}
+#command-line2 .redt {
+    color: #d4d4d4;
+}
+#command-line2 .bluet {
+    color: #831dac;
+}
+#command-line2 .information {
+    text-shadow: 0 0 .8em #7f7f7f;
+}
+#command-line2 .editline {
+    text-shadow: 0 0 .8em #a38f15 !important;
+}

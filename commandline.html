@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0-13/css/all.min.css"
+          integrity="sha512-MdXcgiHaL1yFyNjJtThjw0XkwR8tcd1aDcewr+2/whtekkfCbr79HXBNVQB4x+cVZKwnVt1mm3fP1Amj0cGClw=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/sample.css">
+
+</head>
+<body>
+<div class="shell" id="command-line">
+</div>
+<div class="shell" id="command-line2">
+</div>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/Queue.src.js"></script>
+<script src="js/textTyper.js"></script>
+<script src="js/shelly.js"></script>
+
+<script>
+    let shell = $("#command-line").shell({  // calls the init method
+        enableGlitch: false,
+        User: "root",
+        startup: function (shell) {
+            shell.print("Server", "A!");
+            shell.print("Server", "A!───────▀▄───▄▀────────");
+            shell.print("Server", "A!──────▄█▀███▀█▄───────");
+            shell.print("Server", "A!─────█▀███████▀█──────");
+            shell.print("Server", "A!─────█─█▀▀▀▀▀█─█──────");
+            shell.print("Server", "A!────────▀▀─▀▀─────────");
+            shell.print("Server", "A!");
+            shell.print("", "A!");
+            shell.print("Client", "For help say '/help' <kbd class='carrot'>Enter</kbd>");
+            shell.print("Client", "<i class='fab fa-linux carrot'></i>");
+
+        }
+    });
+    shell.register("/help", function (shell, command) {
+        shell.print("", "help : Show commands", 5);
+        shell.print("", "clear : Clear the console", 5);
+        shell.print("", "version : Version info", 5);
+        shell.print("", "about : personal summary", 5);
+        shell.error("be aware of errors");
+    });
+
+
+    let shell2 = $("#command-line2").shell({  // calls the init method
+        enableGlitch: true,
+        User: "admin",
+        startup: function (shell) {
+            shell.print("Server", "A!");
+            shell.print("Server", "A!");
+            shell.print("", "A!");
+            shell.print("Client", "For help say 'help' <kbd class='carrot'>Enter</kbd>");
+            shell.print("Client", "<i class='fab fa-apple'></i>");
+
+        }
+    });
+    shell2.register("help", function (shell, command) {
+        shell.print("", "help : Show commands", 5);
+        shell.print("", "clear : Clear the console", 5);
+        shell.print("", "version : Version info", 5);
+    });
+    shell2.register("version", function (shell, command) {
+        shell.print("", "ProductName: Mac OS X", 5);
+        shell.print("", "ProductVersion: 10.11.1", 5);
+    });
+    // fallback for handling unrecognized command or user input
+    shell2.fallback(function (shell, command) {
+        shell.error(`I'm not getting this "${command}"`);
+    });
+
+</script>
+</body>
+</html>
